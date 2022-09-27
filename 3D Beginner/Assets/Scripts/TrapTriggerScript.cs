@@ -17,8 +17,10 @@ public class TrapTriggerScript : MonoBehaviour
             //trapSoundTrigger = GetComponent<AudioSource>();
             trapSoundTrigger.Play(0);
             trapSoundRolling.Play(4);
-            Destroy(gameObject);
             doorToOpen.transform.Translate(29.26f, 8.17f, -11.35f);
+            Destroy(trapToSpawn, 8f);
+            Destroy(gameObject);
+            
             
         }
     }
