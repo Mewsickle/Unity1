@@ -377,10 +377,16 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
+<<<<<<< Updated upstream
+=======
+"Assets/Scripts/BulletScript.cs"
+"Assets/Scripts/BulletScriptPlayer.cs"
+"Assets/Scripts/DoorScript.cs"
+"Assets/Scripts/EnemySpawner.cs"
+>>>>>>> Stashed changes
 "Assets/Scripts/GameEnding.cs"
 "Assets/Scripts/LightFlicker.cs"
 "Assets/Scripts/MineScript.cs"
-"Assets/Scripts/MineScript1.cs"
 "Assets/Scripts/MyEnemy.cs"
 "Assets/Scripts/Observer.cs"
 "Assets/Scripts/ObserverScript.cs"

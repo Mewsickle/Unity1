@@ -5,9 +5,17 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject mine;
+    //[SerializeField] private GameObject _powerUp2;
+    [SerializeField] GameObject _projectile;
+    [SerializeField] private float _velocity = 200f;
+    [SerializeField] private float _cooldownTime2 = 3f;
     [SerializeField] private Transform _mineSpawnPosition;
-    [SerializeField] bool mineOn;
-    [SerializeField] float cooldownTime;
+    [SerializeField] private Transform _launchpoint;
+
+    bool mineOn;
+    bool shootOn;
+
+    [SerializeField] float cooldownTime1;
     private float nextFireTime = 0;
 
 
@@ -15,7 +23,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         mineOn = false;
-
+        shootOn = false; 
     }
 
     void Update()
@@ -32,9 +40,25 @@ public class Weapon : MonoBehaviour
                 else if (mineOn = true)
                 {
                     Instantiate(mine, _mineSpawnPosition.position, _mineSpawnPosition.rotation);
-                    nextFireTime = Time.time + cooldownTime;
+                    nextFireTime = Time.time + cooldownTime1;
                 }
 
+            }
+
+            else if (Input.GetButtonDown("Fire2"))
+            {
+                if(!shootOn)
+                {
+                    Debug.Log("No Shooty stuff");
+                }
+
+                else if (shootOn = true)
+                {
+                    GameObject bullet = Instantiate(_projectile, _launchpoint.position, _launchpoint.rotation);
+                    bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, _velocity, 0));
+                    nextFireTime = Time.time + _cooldownTime2;
+                    Destroy(bullet, 2f);
+                }
             }
         }
       
@@ -46,6 +70,11 @@ public class Weapon : MonoBehaviour
         if (other.gameObject.CompareTag("Power"))
         {
             mineOn = true;
+            shootOn = true;
         }
+        //else if (other.gameObject.CompareTag("Door"))
+        //{
+
+        //}
     }
 }
