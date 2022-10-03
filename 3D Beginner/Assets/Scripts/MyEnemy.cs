@@ -6,6 +6,7 @@ public class MyEnemy : MonoBehaviour
 {
     public GameEnding gameEnding;
     [SerializeField] private int health;
+    [SerializeField] bool isSeeker = false;
     public void Hurt(int damage)
     {
         Debug.Log("Hit: " + damage);
@@ -15,9 +16,21 @@ public class MyEnemy : MonoBehaviour
             Die();
         }
     }
-    public void Die()
+    private void Die()
     {
+        if (isSeeker = true)
+        {
+            Debug.Log("dead");
+
+            //EnemySpawner count = GetComponent<EnemySpawner>();
+            //count.Counter();
+
+        }
+
         Destroy(gameObject);
+       
+
+
     }
    
         private void OnTriggerEnter(Collider other)
