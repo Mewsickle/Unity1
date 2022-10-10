@@ -18,8 +18,8 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        mineOn = false;
-        shootOn = false;
+        mineOn = true;
+        shootOn = true;
 
     }
 
