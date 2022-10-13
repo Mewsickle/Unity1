@@ -28,6 +28,8 @@ public class FPSController : MonoBehaviour
     float verticalInput;
 
     Vector3 moveDirection;
+    
+    [SerializeField] private Animator animator;
 
     Rigidbody rb;
 
@@ -80,6 +82,8 @@ public class FPSController : MonoBehaviour
 
             Jump();
 
+            animator.SetBool(name:"Jump", true);
+
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
@@ -88,9 +92,17 @@ public class FPSController : MonoBehaviour
     {
         // calculate movement direction 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        if(grounded)
+        if(grounded && horizontalInput > 0.1 || verticalInput > 0.1 || horizontalInput < -0.1 || verticalInput < -0.1)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+           
+                animator.SetBool(name: "Run", true);
+            
+            
+        }
+        else if (horizontalInput < 0.1 || verticalInput < 0.1 || horizontalInput > -0.1 || verticalInput > -0.1)
+        {
+            animator.SetBool(name: "Run", false);
         }
        else if(!grounded)
         {
@@ -124,6 +136,6 @@ public class FPSController : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
-
+        animator.SetBool(name: "Jump", false);
     }
 }
