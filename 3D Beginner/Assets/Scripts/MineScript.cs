@@ -8,6 +8,9 @@ public class MineScript : MonoBehaviour
 {
     [SerializeField] private int _damage;
     [SerializeField] private float delay;
+    [SerializeField] private GameObject boom;
+    [SerializeField] private Transform _mineSpawnPosition;
+
 
     private void Start()
     {
@@ -22,6 +25,8 @@ public class MineScript : MonoBehaviour
         {
             MyEnemy enemy = other.GetComponent<MyEnemy>();
             enemy.Hurt(_damage);
+            Instantiate(boom, _mineSpawnPosition.position, _mineSpawnPosition.rotation);
+            
             Destroy(gameObject);
         }
     }
