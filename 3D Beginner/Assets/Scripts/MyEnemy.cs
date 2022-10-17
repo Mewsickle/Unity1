@@ -24,6 +24,7 @@ public class MyEnemy : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
+
                 gameEnding.CaughtPlayer();
             }
         }
