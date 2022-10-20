@@ -56,7 +56,7 @@ public class GameEnding : MonoBehaviour
         {
             if (doRestart)
             {
-                SceneManager.LoadScene ("Level1");
+                SceneManager.LoadScene ("DevLevel");
             }
             else
             {

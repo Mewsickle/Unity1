@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 20f;
     public float walkSpeed = 1f; // внесен модификатор скорости с возможностью редактирования из редактора.
+    [SerializeField] float jumpVelocity = 600f;
+    [SerializeField] GameObject player;
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
@@ -48,6 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation (desiredForward);
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("jump!");
+            player.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, jumpVelocity, 0));
+        }
     }
 
     void OnAnimatorMove ()
