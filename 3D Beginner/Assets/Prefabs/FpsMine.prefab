@@ -113,4 +113,6 @@ MonoBehaviour:
   _damage: 3
   delay: 5
   boom: {fileID: 5093110008979647933, guid: edd921f47da3f57488215b3a6a24b34a, type: 3}
+  explosion: {fileID: 5074027508923991381, guid: 6cb4295b9f81a2e4d854f0f070f1d70a,
+    type: 3}
   _mineSpawnPosition: {fileID: 5847642818221108387}

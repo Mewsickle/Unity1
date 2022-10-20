@@ -13,7 +13,7 @@ public class Explosion : MonoBehaviour
         {
             MyEnemy enemy = other.GetComponent<MyEnemy>();
             enemy.Hurt(_damage);
-            Destroy(gameObject, 0.2f);
+            Destroy(gameObject, 1.0f);
         }
     }
         
